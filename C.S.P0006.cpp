@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+// 40 loc
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 void input(int *ptr, int n){
 	for(int i = 0; i< n; i++){
