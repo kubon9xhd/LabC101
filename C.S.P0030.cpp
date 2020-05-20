@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+// 44 loc
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 void function1(int &n){
 	do{
