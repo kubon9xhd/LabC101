@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
-
+// 60 loc
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 int clean_stdin(){
 	// reading all char that scanf can not read with format when it read char enter then stop;
