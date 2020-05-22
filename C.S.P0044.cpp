@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<limits.h>
-
+// 97 loc
 //csp 0044
 
 int getInt(char msg[], char err[], int min, int max) {
