@@ -1,20 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
-#include <conio.h>
 // 140 loc
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 void press() {
 	char key;
-	printf("Enter random to back menu");
+	system("pause");
 	while(1){
-		if(kbhit()){ // check action of user when they use keyboard
-	        key = getch(); // get char they click/enter
+	        key = getchar(); // get char they click/enter
 	        if(key != NULL){
 	            system("cls"); // delete display
 	            break;
             }
-        }
 	}
 }
 
@@ -152,10 +149,10 @@ void function2(int a[],int &i,int option){
 			// add element to array
 			if(i <= 100){
 				input(a,i);
-				break;
 			}else{
 				printf("Can not add more\n");
 			}
+			break;
 		case 2:
 			// find index of element 
 			search(a,i);
