@@ -3,7 +3,8 @@
 #include<limits.h>
 // 97 loc
 //csp 0044
-
+// Value of INT_MAX is +2147483647.
+// Value of INT_MIN is -2147483648.
 int getInt(char msg[], char err[], int min, int max) {
     int num;
     int check;
