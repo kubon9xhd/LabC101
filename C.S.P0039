@@ -1,0 +1,88 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+void checkValidValuesOfDate(){
+	int dd,mm,yy;
+	printf("Enter date (DD-MM-YYYY format): ");
+    scanf("%d-%d-%d",&dd,&mm,&yy);
+    // check year;
+    if(yy >= 1 && yy <= 9999){
+    	// check month
+    	if(mm >= 1 && mm <= 12){
+    		if((dd >= 1 && dd <= 31) && (mm == 1 || mm == 3 || mm == 5 || mm == 7 || mm == 8 || mm == 10 || mm == 12))
+    			printf("Date is valid.\n");
+    		else if((dd >= 1 && dd <= 30) && (mm==4 || mm==6 || mm==9 || mm==11))
+                printf("Date is valid.\n");
+			else if(dd == 29 && mm == 2 && (yy%400 == 0 ||(yy%4==0 && yy%100 !=0)))
+                printf("Date is valid.\n");
+            else{
+            	printf("Day is invalid.\n");	
+			}
+		}else{
+			printf("Month is invalid.\n");
+		} 
+	}else{
+		printf("Year is invalid.\n");
+	}
+}
+void covertCharacterToASCII(){
+	char a,b;
+	int i,j;
+	do{
+		printf("Enter two characters:");
+		fflush(stdin);
+	}while(scanf("%c%c",&a,&b) != 2);
+	printf("Output:");
+	// if just check A-z; [65-90] and [97-122]
+	if(int(a) <= int(b)){
+		i = int(a);
+		j = int(b);
+		for(int codeASCII = i; codeASCII <= j; codeASCII++){
+			printf("%c:%d\n",codeASCII,codeASCII);
+		}
+	}else if(int(a) >= int(b)){
+		i = int(a);
+		j = int(b);
+		for(int codeASCII = i; codeASCII >= j; codeASCII--){
+			printf("%c:%d\n",codeASCII,codeASCII);
+		}
+	}
+
+}
+void menuSlectOption(){
+	int option;
+	int check;
+	char c;
+	do{
+		printf("1- Processing date data\n");
+		printf("2- Character data\n");
+		printf("3- Quit\n");
+		printf("Enter the choice:");
+		do{
+			fflush(stdin);
+			check = scanf("%d%c",&option,&c);
+			if(check != 2 || c != '\n'){
+				printf("Re-enter input for the choice\n");
+				check = 0;
+			}else{
+				check = 1;
+			}
+		}while(check == 0);
+		switch(option){
+			case 1:
+				checkValidValuesOfDate();
+				break;
+			case 2:
+				covertCharacterToASCII();
+				break;
+			case 3:
+				return ;				
+		}
+	}while(1);
+	
+}
+int main(int argc, char *argv[]) {
+	menuSlectOption();
+	return 0;
+}
