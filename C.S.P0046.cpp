@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include <math.h>
 
-bool checkPrime(int n){
-	if(n==0||n==1) return false;
+int checkPrime(int n){
+	if(n==0||n==1) return 0;
 	for(int i=2; i<=sqrt(n); i++){
-		if(n%i==0)	return false;
+		if(n%i==0)	return 0;
 	}
-	return true;
+	return 1;
 }
 
-void function2(){
+void outputPrimes(){
 	int num,i=2,count=0;
 	do{
 		printf("Number of primes:");
@@ -22,32 +22,50 @@ void function2(){
 	while(1){
 		if(checkPrime(i)) {
 			printf("%d ",i);
-			printf("\n"); count++;
+			count++;
 			if(count==num) return;
 		}
 		i++;
 	}
 }
 
-bool isPerfectSquare(int x){
-	int s=sqrt(x);
-	return (s*s==x);
+int isFibonacciTerm(int x){
+	int f0 = 1;
+    int f1 = 1;
+    int fN = 0;
+ 
+    if( x < 1 )
+        return 0;
+ 
+    if( x == 1 )
+        return 1;
+ 
+    while(fN <= x)
+    {
+        fN = f0 + f1;
+        f0 = f1;
+        f1 = fN;
+        if(fN == x)
+            return 1;
+    }
+    return 0;
+
 }
 
-void function3(){
+void checkFibonacci(){
 	int n;
-	bool check=false;
+	int check = 0;
 	do{
 		printf("Number tested:");
 		scanf("%d",&n);
 		if(n<=0||n>1000) printf("Re-input");
 	}while(n<=0||n>1000);
-	if(isPerfectSquare(5*n*n+4)||isPerfectSquare(5*n*n-4)) check=true;
-	if(check==true) printf("true\n");
+	if(isFibonacciTerm(n)) check = 1;
+	if(check==1) printf("true\n");
 	else printf("false\n");
 }
 
-void function4(){
+void sumDigits(){
 	int sum=0,n,i;
 	printf("Enter an integer:");
 	scanf("%d",&n);
@@ -58,7 +76,7 @@ void function4(){
 	printf("Sum of it's digits:%d\n",sum);
 }
 
-void function1(){
+void choiceMenu(){
 	int check;
 	do{
 		printf("1 - The first primes\n");
@@ -67,13 +85,13 @@ void function1(){
 		printf("Choosen an option:");
 		scanf("%d",&check);
 		switch(check){
-			case 1: function2(); break;
-			case 2: function3(); break;
-			case 3: function4(); break;
+			case 1: outputPrimes(); break;
+			case 2: checkFibonacci(); break;
+			case 3: sumDigits(); break;
 		}
 	}while(1);	
 }
 
 int main(){
-	function1();	
+	choiceMenu();	
 }
